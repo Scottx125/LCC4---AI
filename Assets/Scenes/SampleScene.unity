@@ -1940,8 +1940,11 @@ MonoBehaviour:
   - {fileID: 909419178}
   _preyLayerMask: Prey
   _fovRange: 100
+  _attackRange: 4
   _walkSpeed: 2
   _runSpeed: 6
+  _attackDelay: 1
+  _damage: 1
 --- !u!195 &534830680
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6348,3 +6351,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1.53}
   m_Center: {x: 0, y: 0.5, z: 0.25}
+--- !u!114 &5027052850026434567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5027052850026434563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efcb44ff4ca171144962296465832da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitPoints: 50

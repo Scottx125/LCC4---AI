@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckPreyInRange : Node
+public class CheckEnemyInFOV : Node
 {
     private Transform _transform;
     private float _fovRadius = 1;
     private LayerMask _preyLayerMask;
-    public CheckPreyInRange(Transform transform, float fovRadius, string preyLayerMask)
+    public CheckEnemyInFOV(Transform transform, float fovRadius, string preyLayerMask)
     {
         _transform = transform;
         _fovRadius = fovRadius;

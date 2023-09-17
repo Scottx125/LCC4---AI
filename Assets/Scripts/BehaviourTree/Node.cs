@@ -65,7 +65,6 @@ namespace BehaviourTree
         public bool ClearData(string key)
         {
             // Search through not only the children but the entire tree for the data we're looking for.
-            object value = null;
             if (_dataContext.ContainsKey(key))
             {
                 _dataContext.Remove(key);

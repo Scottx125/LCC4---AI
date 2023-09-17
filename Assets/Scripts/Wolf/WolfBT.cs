@@ -18,9 +18,15 @@ public class WolfBT : Tree
     [SerializeField]
     private float _fovRange = 6f;
     [SerializeField]
+    private float _attackRange = 4f;
+    [SerializeField]
     private float _walkSpeed = 2f;
     [SerializeField]
     private float _runSpeed = 6f;
+    [SerializeField]
+    private float _attackDelay = 1f;
+    [SerializeField]
+    private int _damage = 1;
     protected override Node SetupTree()
     {
         foreach(var waypoint in _waypoints)
@@ -35,7 +41,12 @@ public class WolfBT : Tree
         {
             new Sequence(new List<Node>
             {
-                new CheckPreyInRange(transform, _fovRange, _preyLayerMask),
+                new CheckEnemyInAttackRange(transform, _animator, _preyLayerMask, _attackRange),
+                new TaskAttack(_attackDelay, _animator, _damage),
+            }),
+            new Sequence(new List<Node>
+            {
+                new CheckEnemyInFOV(transform, _fovRange, _preyLayerMask),
                 new TaskGoToTarget(transform, _agent, _runSpeed, _animator),
             }),
             new TaskPatrol(transform, _navMeshWaypoints.ToArray(), _agent, _walkSpeed, _animator),
