@@ -8,13 +8,11 @@ public class CheckEnemyInAttackRange : Node
 {
     private Transform _transform;
     private Animator _animator;
-    private LayerMask _preyLayerMask;
     private float _attackRange;
-    public CheckEnemyInAttackRange(Transform transform, Animator animator, string preyLayerMask, float attackRange)
+    public CheckEnemyInAttackRange(Transform transform, Animator animator, float attackRange)
     {
         _transform = transform;
         _animator = animator;
-        _preyLayerMask = LayerMask.GetMask(preyLayerMask);
         _attackRange = attackRange;
     }
 
@@ -26,6 +24,7 @@ public class CheckEnemyInAttackRange : Node
         {
             state = NodeState.FAILURE;
             return state;
+            Debug.Log("ATTACK RANGE FAILURE");
         }
 
         Transform target = (Transform)t;
@@ -36,6 +35,7 @@ public class CheckEnemyInAttackRange : Node
             _animator.SetBool("Running", false);
             state = NodeState.SUCCESS;
             return state;
+            Debug.Log("IN ATTACK RANGE");
         }
 
 

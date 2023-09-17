@@ -8,11 +8,15 @@ public class CheckEnemyInFOV : Node
     private Transform _transform;
     private float _fovRadius = 1;
     private LayerMask _preyLayerMask;
-    public CheckEnemyInFOV(Transform transform, float fovRadius, string preyLayerMask)
+    private AudioSource _wolfAudio;
+    private AudioClip _wolfHowl;
+    public CheckEnemyInFOV(Transform transform, float fovRadius, string preyLayerMask, AudioSource wolfAudio, AudioClip wolfHowl)
     {
         _transform = transform;
         _fovRadius = fovRadius;
         _preyLayerMask = LayerMask.GetMask(preyLayerMask);
+        _wolfAudio = wolfAudio;
+        _wolfHowl = wolfHowl;
     }
 
     public override NodeState Evaluate()
@@ -26,6 +30,7 @@ public class CheckEnemyInFOV : Node
             {
                 parent.parent.SetData("target", colliders[0].transform);
                 state = NodeState.SUCCESS;
+                _wolfAudio.PlayOneShot(_wolfHowl);
                 return state;
             }
             state = NodeState.FAILURE;

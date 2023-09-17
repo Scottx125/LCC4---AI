@@ -28,7 +28,7 @@ public class TaskAttack : Node
         }
 
         _attackCounter += Time.deltaTime;
-        if (_attackCounter == _attackDelay)
+        if (_attackCounter >= _attackDelay)
         {
             _animator.SetFloat("AttackingAnim", (float)Random.Range(0,1));
             bool enemyIsDead = _enemyManager.TakeHit(_damage);
