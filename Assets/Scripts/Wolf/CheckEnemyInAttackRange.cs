@@ -24,7 +24,6 @@ public class CheckEnemyInAttackRange : Node
         {
             state = NodeState.FAILURE;
             return state;
-            Debug.Log("ATTACK RANGE FAILURE");
         }
 
         Transform target = (Transform)t;
@@ -35,7 +34,6 @@ public class CheckEnemyInAttackRange : Node
             _animator.SetBool("Running", false);
             state = NodeState.SUCCESS;
             return state;
-            Debug.Log("IN ATTACK RANGE");
         }
 
 
